@@ -1,0 +1,86 @@
+ /*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+          .list-group-horizontal .list-group-item {
+			display: inline-block;
+			width:98%;
+			margin-left:-20px;
+			
+		}
+		
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+		.list-group-horizontal .list-group-item {
+			display: inline-block;
+			width:100%;
+			
+		}
+		.list-group-horizontal .list-group-item {
+			margin-bottom: 4px;
+			
+			border-right-width: 1;
+		}
+	
+    }
+	
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+		.list-group-horizontal .list-group-item {
+			display: inline-block;
+			width:50%;
+			
+		}
+		.list-group-horizontal .list-group-item {
+			margin-bottom: 4px;
+			
+			border-right-width: 1;
+		}
+	
+    }
+	 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+		.list-group-horizontal .list-group-item {
+			display: inline-block;
+			width:100%;
+			
+		}
+		.list-group-horizontal .list-group-item {
+			margin-bottom: 4px;
+			
+			border-right-width: 1;
+		}
+	
+    }
+	
+	
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) and (max-device-width : 1200px) {
+		.list-group-horizontal .list-group-item {
+			display: inline-block;
+			width:48%;
+			
+		}
+		.list-group-horizontal .list-group-item {
+			margin-bottom: 4px;
+			
+			border-right-width: 1;
+		}
+
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+		.list-group-horizontal .list-group-item {
+			display: inline-block;
+			width:21%;
+		}
+		.list-group-horizontal .list-group-item {
+			margin-bottom: 4px;
+			
+			border-right-width: 1;
+		}
+	
+    }

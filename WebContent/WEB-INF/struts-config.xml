@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  	<form-beans >
+		<form-bean name="authenticationForm" type="in.gov.cgg.struts.Authentication.Form.AuthenticationForm" />
+		<form-bean name="commonMasterForm" type="in.gov.cgg.struts.Masters.Form.CommonMasterForm" />
+		<form-bean name="commonApplicationForm" type="in.gov.cgg.struts.Application.Form.CommonApplicationForm" />
+		<form-bean name="commonReportsForm" type="in.gov.cgg.struts.Reports.Form.CommonReportsForm" />
+		<form-bean name="dynaForm" type="in.gov.cgg.common.beans.DynaForm" />
+	</form-beans>
+	
+  <global-exceptions>
+		<exception key="error" type="java.lang.Exception" path="/WEB-INF/errors/error.jsp"></exception>
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="login" path="/Login.do" redirect="true" />
+		<forward name="notGenuine" path="/sessionExpired.do" />
+	</global-forwards>
+	
+  <action-mappings >
+  	
+  	<action path="/Welcome" input="/jsp/common/mainPage.jsp"
+		name="authenticationForm" parameter="mode"  scope="request"
+		type="in.gov.cgg.struts.Authentication.Action.AuthenticationAction">
+		<forward name="success" path="showMainPage" />
+	</action>
+  
+  	<action path="/Login"
+		type="in.gov.cgg.struts.Authentication.Action.AuthenticationAction" scope="request"
+		name="authenticationForm" parameter="mode" validate="false" unknown="true">
+		<forward name="success" path="/jsp/authentication/Login.jsp" />
+		<forward name="showMainPage" path="showMainPage" />
+		<forward name="failure" path="/jsp/authentication/Login.jsp" />
+	</action>
+	
+	<action path="/Logout" attribute="authenticationForm"
+		type="in.gov.cgg.struts.Authentication.Action.LogoutAction" scope="request" 
+		name="authenticationForm" parameter="mode" validate="false" unknown="true" >
+		<forward name="success" path="/Login.do" />
+		<forward name="failure" path="logout" />
+	</action>
+	
+	<!-- <action path="/sessionExpired" 
+		type="in.gov.cgg.struts.Authentication.Action.SessionExpiredAction"
+		validate="false">
+		<forward name="success" path="page.sessionexpired"/>
+	</action> -->
+	
+	<action path="/sessionExpired" attribute="dynaForm" name="dynaForm"
+		type="in.gov.cgg.struts.Authentication.Action.SessionExpiredAction"
+		validate="false">
+		<forward name="success" path="page.sessionexpired"/>
+	</action>
+	
+	 <action path="/register"
+		type="in.gov.cgg.struts.Authentication.Action.AuthenticationAction" scope="request"
+		name="authenticationForm" parameter="mode" validate="false" unknown="true">
+		<forward name="success" path="/jsp/authentication/Login.jsp" />
+	</action>
+	
+	<action path="/projects" attribute="commonMasterForm" input="/jsp/masters/projects.jsp"
+		type="in.gov.cgg.struts.Masters.Action.ProjectsAction" scope="request" 
+		name="commonMasterForm" parameter="mode" validate="false" unknown="true" >
+		<forward name="showProjects" path="showProjects" />
+		<forward name="showProjectsSubPage" path="/jsp/masters/projects.jsp" />
+	</action>
+	
+	<action path="/workLog" attribute="commonApplicationForm" input="/jsp/application/workLog.jsp"
+		type="in.gov.cgg.struts.Application.Action.WorkLogAction" scope="request" 
+		name="commonApplicationForm" parameter="mode" validate="false" unknown="true" >
+		<forward name="showWorkLog" path="showWorkLog" />
+		<forward name="showWorkLogSubPage" path="/jsp/application/workLog.jsp" />
+	</action>	
+		
+  	<action path="/addTask" attribute="commonApplicationForm" 
+		type="in.gov.cgg.struts.Application.Action.AddTaskAction" scope="request" 
+		name="commonApplicationForm" parameter="mode" validate="false" unknown="true" >
+		<forward name="showAddTask" path="showAddTask" />
+	</action>
+	
+	<action path="/workLogReport" attribute="commonReportsForm" input="/jsp/reports/workLogReport.jsp"
+		type="in.gov.cgg.struts.Reports.Action.WorkLogReportAction" scope="request" 
+		name="commonReportsForm" parameter="mode" validate="false" unknown="true" >
+		<forward name="showWorkLogReport" path="showWorkLogReport" />
+	</action>
+	
+	<action path="/taskReport" attribute="commonReportsForm" input="/jsp/reports/taskReport.jsp"
+		type="in.gov.cgg.struts.Reports.Action.TaskReportAction" scope="request" 
+		name="commonReportsForm" parameter="mode" validate="false" unknown="true" >
+		<forward name="showTaskReport" path="showTaskReport" />
+	</action>
+	
+	
+	<action path="/messageService" attribute="dynaForm" input="/jsp/common/sideMenu.jsp"
+		type="in.gov.cgg.struts.chat.MessageAction" scope="request" 
+		name="dynaForm" parameter="mode" validate="false" unknown="true" >
+		<forward name="showChatMessage" path="showChatMessage" />
+	</action>
+  	
+  </action-mappings>
+  
+  <message-resources parameter="in.cgg.struts.ApplicationResources" />
+  <plug-in className="in.gov.cgg.struts.utils.DataBasePlugin" />
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-parser-validate"
+			value="true" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+	</plug-in>
+</struts-config>
+

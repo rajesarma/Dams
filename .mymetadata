@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Dams"
+  id="myeclipse.1484044635069"
+  context-root="/Dams"
+  j2ee-spec="6.0"
+  archive="Dams.war">
+  <attributes>
+    <attribute name="webrootdir" value="&lt;prjroot&gt;" />
+  </attributes>
+</project-module>
+

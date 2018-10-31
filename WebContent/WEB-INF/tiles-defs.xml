@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "tiles-config_1_1.dtd" >
+<component-definitions>
+	<definition name="logged" page="/jsp/LoginTileTemp.jsp">
+		<put name="home" value="/jsp/home.jsp" />
+	</definition>
+	<!-- <definition name="main-definition" page="/jsp/common/TilesTemplate.jsp">
+		<put name="header" value="/jsp/common/LoginHeader.jsp" />
+		<put name="menu" value="/jsp/common/menu.jsp" />
+		<put name="footer" value="/jsp/common/LoginFooter.jsp" />
+	</definition> -->
+	
+	<!-- <definition name="chat-definition" page="/jsp/common/ChatTilesTemplate.jsp">
+		<put name="header" value="/jsp/common/LoginHeader.jsp" />
+		<put name="menu" value="/jsp/common/menu.jsp" />
+		<put name="sidemenu" value="/jsp/common/sideMenu.jsp" />
+		<put name="footer" value="/jsp/common/LoginFooter.jsp" />
+	</definition> -->
+	
+	<definition name="chat-definition" page="/jsp/common/ChatTilesTemplate.jsp">
+		<put name="header" value="/jsp/common/header.jsp" />
+		<!-- <put name="menu" value="/jsp/common/menu.jsp" /> -->
+		<put name="sidemenu" value="/jsp/common/sidemenu.jsp" />
+		<put name="footer" value="/jsp/common/LoginFooter.jsp" />
+	</definition>
+	
+	<definition name="expired-definition" page="/jsp/common/ExpiredTilesTemplate.jsp">
+		<put name="header" value="/jsp/common/header.jsp" />
+		<!-- <put name="menu" value="/jsp/common/menu.jsp" /> -->
+		<put name="sidemenu" value="/jsp/common/sidemenu.jsp" />
+		<put name="footer" value="/jsp/common/LoginFooter.jsp" />
+	</definition>
+	
+	<!-- <definition name="page.sessionexpired" extends="main-definition">
+        <put name="content" value="/jsp/common/sessionExpired.jsp" />
+    </definition>
+	
+	<definition name="showMainPage" extends="main-definition">
+		<put name="content" value="/jsp/common/mainPage.jsp"></put>
+	</definition>
+	
+	<definition name="showAddTask" extends="main-definition">
+		<put name="content" value="/jsp/application/addTask.jsp"></put>
+	</definition>
+	
+	<definition name="showTaskReport" extends="main-definition">
+		<put name="content" value="/jsp/reports/taskReport.jsp"></put>
+	</definition>
+	
+	<definition name="showWorkLog" extends="main-definition">
+		<put name="content" value="/jsp/application/workLog.jsp"></put>
+	</definition>
+	
+	<definition name="showWorkLogReport" extends="main-definition">
+		<put name="content" value="/jsp/reports/workLogReport.jsp"></put>
+	</definition>
+	
+	<definition name="showProjects" extends="main-definition">
+		<put name="content" value="/jsp/masters/projects.jsp"></put>
+	</definition> -->
+
+	
+	<!-- <definition name="page.sessionexpired" extends="expired-definition">
+        <put name="content" value="/jsp/common/sessionExpired.jsp" />
+    </definition> -->
+    
+    <definition name="page.sessionexpired" extends="expired-definition">
+        <put name="content" value="/jsp/common/sessionExpired.jsp" />
+    </definition>
+	
+	<definition name="showMainPage" extends="chat-definition">
+		<put name="content" value="/jsp/common/mainPage.jsp"></put>
+	</definition>
+	
+	<definition name="showAddTask" extends="chat-definition">
+		<put name="content" value="/jsp/application/addTask.jsp"></put>
+	</definition>
+	
+	<definition name="showTaskReport" extends="chat-definition">
+		<put name="content" value="/jsp/reports/taskReport.jsp"></put>
+	</definition>
+	
+	<definition name="showWorkLog" extends="chat-definition">
+		<put name="content" value="/jsp/application/workLog.jsp"></put>
+	</definition>
+	
+	<definition name="showWorkLogReport" extends="chat-definition">
+		<put name="content" value="/jsp/reports/workLogReport.jsp"></put>
+	</definition>
+	
+	<definition name="showProjects" extends="chat-definition">
+		<put name="content" value="/jsp/masters/projects.jsp"></put>
+	</definition>
+	
+	<definition name="showChatMessage" extends="chat-definition">
+		<put name="content" value="/jsp/common/sideMenu.jsp"></put>
+	</definition>
+	
+</component-definitions>
